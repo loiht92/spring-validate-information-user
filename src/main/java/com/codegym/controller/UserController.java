@@ -13,12 +13,12 @@ import javax.validation.Valid;
 
 @Controller
 public class UserController {
-    @GetMapping("/a")
+    @GetMapping("/user")
     public String showForm(Model model) {
         model.addAttribute("user", new User());
         return "index";
     }
-    @PostMapping("/a")
+    @PostMapping("/user")
     public String checkValidation (@Valid @ModelAttribute("user") User user, BindingResult bindingResult, Model model){
         new User().validate(user, bindingResult);
         if (bindingResult.hasFieldErrors()){
